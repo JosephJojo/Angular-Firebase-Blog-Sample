@@ -7,10 +7,20 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './admin/login/login.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { BlogNewComponent } from './admin/blog-new/blog-new.component';
+import { BlogEditComponent } from './admin/blog-edit/blog-edit.component';
+import { BlogListComponent } from './blog/blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    BlogNewComponent,
+    BlogEditComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
