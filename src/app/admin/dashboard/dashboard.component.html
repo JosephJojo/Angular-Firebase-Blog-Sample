@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<table>
+    <tr>
+        <td>Sl No</td>
+        <td>Title</td>
+        <td>Category</td>
+        <td>Created</td>
+        <td>Published</td>
+        <td>Status</td>
+        <td>No of Views</td>
+        <td>No of Comments</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let post of posts | async; let i=index">
+        <td>{{ i+1 }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.category }}</td>
+        <td>{{ post.created.toMillis() | date:'mediumDate' }}</td>
+        <td>{{ post.published.toMillis() | date:'mediumDate' }}</td>
+        <td>{{ post.status }}</td>
+        <td>{{ post.viewsCount }}</td>
+        <td>{{ post.commentsCount }}</td>
+        <td><a routerLink="/admin/blog/edit/{{ post.id }}">Edit</a></td>
+        <td><a>Delete</a></td>
+    </tr>
+</table>

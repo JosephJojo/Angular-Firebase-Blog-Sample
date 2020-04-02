@@ -20,7 +20,7 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
     DashboardComponent,
     BlogNewComponent,
     BlogEditComponent,
-    BlogListComponent
+    BlogListComponent,
   ],
   imports: [
     BrowserModule,
