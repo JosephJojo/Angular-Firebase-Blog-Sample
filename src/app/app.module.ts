@@ -13,6 +13,8 @@ import { BlogNewComponent } from './admin/blog-new/blog-new.component';
 import { BlogEditComponent } from './admin/blog-edit/blog-edit.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence()
   ],

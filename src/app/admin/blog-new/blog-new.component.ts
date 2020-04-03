@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BlogService } from '../../shared/blog.service';
 
 @Component({
   selector: 'app-blog-new',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogNewComponent implements OnInit {
 
-  constructor() { }
+  blogForm: FormGroup;
+  categories: string[] = [null, 'Angular', 'SharePoint', 'JavaScript', 'PowerShell', "M365"];
+  status: string[] = [null, 'Draft', 'Published'];
+
+  constructor(private formBuilder: FormBuilder, private blogService: BlogService) { 
+    this.blogForm = formBuilder.group({
+      'title': [null, Validators.required],
+      'category': [null, Validators.required],
+      'content': [null, Validators.required],
+      'created': [null, Validators.required],
+      'published': [null, Validators.required],
+      'status': [null, Validators.required],
+      'img': [null, null]
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  addPost(post) {
+    post.created = new Date(post.created);
+    post.published = new Date(post.published);
+    this.blogService.newPost(post);
   }
 
 }
