@@ -1,0 +1,34 @@
+<table>
+    <tr>
+        <td>Title</td>
+        <td>{{ blogPost?.title }}</td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td>{{ blogPost?.category }}</td>
+    </tr>
+    <tr>
+        <td>Content</td>
+        <td>{{ blogPost?.content }}</td>
+    </tr>
+    <tr>
+        <td>Banner Image</td>
+        <td>{{ blogPost?.img }}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{ blogPost?.status }}</td>
+    </tr>
+    <tr>
+        <td>Created</td>
+        <td>{{ blogPost?.created.toMillis() | dateAgo }}</td>
+    </tr>
+    <tr>
+        <td>Modified</td>
+        <td>{{ blogPost?.modified.toMillis() | dateAgo }}</td>
+    </tr>
+    <tr>
+        <td>Published</td>
+        <td>{{ (blogPost?.status=="Published")?(blogPost?.published?.toMillis() | dateAgo):"Not Publised" }}</td>
+    </tr>
+</table>

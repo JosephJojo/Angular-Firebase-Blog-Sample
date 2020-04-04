@@ -16,7 +16,7 @@
     </tr>
     <tr *ngFor="let post of posts | async; let i=index">
         <td>{{ i+1 }}</td>
-        <td>{{ post?.title }}</td>
+        <td><a routerLink="/blog/view/{{ post?.id }}">{{ post?.title }}</a></td>
         <td>{{ post?.category }}</td>
         <td>{{ post?.created?.toMillis() | dateAgo }}</td>
         <td>{{ post?.modified?.toMillis() | dateAgo }}</td>

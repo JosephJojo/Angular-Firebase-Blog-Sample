@@ -12,6 +12,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { BlogNewComponent } from './admin/blog-new/blog-new.component';
 import { BlogEditComponent } from './admin/blog-edit/blog-edit.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
+import { BlogViewComponent } from './blog/blog-view/blog-view.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAgoPipe } from './shared/pipes/date-ago.pipe';
@@ -24,6 +25,7 @@ import { DateAgoPipe } from './shared/pipes/date-ago.pipe';
     BlogNewComponent,
     BlogEditComponent,
     BlogListComponent,
+    BlogViewComponent,
     DateAgoPipe,
   ],
   imports: [
