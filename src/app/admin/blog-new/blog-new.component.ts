@@ -30,6 +30,7 @@ export class BlogNewComponent implements OnInit {
 
   addPost(post) {
     post.created = new Date();
+    post.modified = new Date();
     if(post.status == "Published") {
       post.published = new Date();
     }

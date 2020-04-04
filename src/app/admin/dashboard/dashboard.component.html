@@ -6,6 +6,7 @@
         <td>Title</td>
         <td>Category</td>
         <td>Created</td>
+        <td>Modified</td>
         <td>Published</td>
         <td>Status</td>
         <td>No of Views</td>
@@ -18,6 +19,7 @@
         <td>{{ post?.title }}</td>
         <td>{{ post?.category }}</td>
         <td>{{ post?.created?.toMillis() | dateAgo }}</td>
+        <td>{{ post?.modified?.toMillis() | dateAgo }}</td>
         <td>{{ (post?.status=="Published")?(post?.published?.toMillis() | dateAgo):"Not Publised" }}</td>
         <td>{{ post?.status }}</td>
         <td>{{ post?.viewsCount }}</td>

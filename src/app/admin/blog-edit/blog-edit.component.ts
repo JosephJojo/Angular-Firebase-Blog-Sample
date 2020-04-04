@@ -48,6 +48,7 @@ export class BlogEditComponent implements OnInit {
 
   updatePost(post: Blog) {
     const id = this.route.snapshot.paramMap.get('id');
+    post.modified = new Date();
     if(post.status == "Published") {
       post.published = new Date();
     } else {

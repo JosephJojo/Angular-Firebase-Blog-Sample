@@ -21,7 +21,11 @@
     </label>
     <br>
     <label for="created">Created
-        {{ blogPost?.created.toMillis() | date:'medium' }}
+        {{ blogPost?.created.toMillis() | dateAgo }}
+    </label>
+    <br>
+    <label for="modified">Modified
+        {{ blogPost?.modified.toMillis() | dateAgo }}
     </label>
     <br>
     <!-- <label for="published">Published
