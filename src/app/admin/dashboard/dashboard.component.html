@@ -2,7 +2,7 @@
 
 <table>
     <tr>
-        <td>Sl No</td>
+        <td>#</td>
         <td>Title</td>
         <td>Category</td>
         <td>Created</td>
@@ -15,13 +15,13 @@
     </tr>
     <tr *ngFor="let post of posts | async; let i=index">
         <td>{{ i+1 }}</td>
-        <td>{{ post.title }}</td>
-        <td>{{ post.category }}</td>
-        <td>{{ post.created.toMillis() | date:'mediumDate' }}</td>
-        <td>{{ post.published.toMillis() | date:'mediumDate' }}</td>
-        <td>{{ post.status }}</td>
-        <td>{{ post.viewsCount }}</td>
-        <td>{{ post.commentsCount }}</td>
+        <td>{{ post?.title }}</td>
+        <td>{{ post?.category }}</td>
+        <td>{{ post?.created?.toMillis() | dateAgo }}</td>
+        <td>{{ (post?.status=="Published")?(post?.published?.toMillis() | dateAgo):"Not Publised" }}</td>
+        <td>{{ post?.status }}</td>
+        <td>{{ post?.viewsCount }}</td>
+        <td>{{ post?.commentsCount }}</td>
         <td><a routerLink="/admin/blog/edit/{{ post.id }}">Edit</a></td>
         <td><a (click)="deletePost(post.id)">Delete</a></td>
     </tr>

@@ -14,6 +14,7 @@ import { BlogEditComponent } from './admin/blog-edit/blog-edit.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateAgoPipe } from './shared/pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BlogNewComponent,
     BlogEditComponent,
     BlogListComponent,
+    DateAgoPipe,
   ],
   imports: [
     BrowserModule,

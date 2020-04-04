@@ -20,11 +20,11 @@
         <input type="text" formControlName="img">
     </label>
     <br>
-    <!-- <label for="created">Created
-        <input type="date" formControlName="created">
+    <label for="created">Created
+        {{ blogPost?.created.toMillis() | date:'medium' }}
     </label>
     <br>
-    <label for="published">Published
+    <!-- <label for="published">Published
         <input type="date" formControlName="published">
     </label>
     <br> -->

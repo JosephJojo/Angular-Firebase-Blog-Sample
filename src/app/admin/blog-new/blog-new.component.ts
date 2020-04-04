@@ -18,8 +18,8 @@ export class BlogNewComponent implements OnInit {
       'title': [null, Validators.required],
       'category': [null, Validators.required],
       'content': [null, Validators.required],
-      'created': [null, Validators.required],
-      'published': [null, Validators.required],
+      // 'created': [null, Validators.required],
+      // 'published': [null, Validators.required],
       'status': [null, Validators.required],
       'img': [null, null]
     })
@@ -29,8 +29,10 @@ export class BlogNewComponent implements OnInit {
   }
 
   addPost(post) {
-    post.created = new Date(post.created);
-    post.published = new Date(post.published);
+    post.created = new Date();
+    if(post.status == "Published") {
+      post.published = new Date();
+    }
     this.blogService.newPost(post);
   }
 
