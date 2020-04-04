@@ -35,4 +35,9 @@ export class BlogService {
   newPost(post: Blog) {
     this.postCollection.add(post);
   }
+
+  updatePost(id: string, post: Blog) {
+    this.postDoc = this.afs.doc<Blog>(`blogPosts/${id}`);
+    this.postDoc.update(post);
+  }
 }

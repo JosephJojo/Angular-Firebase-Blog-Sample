@@ -7,7 +7,7 @@
     <br>
     <label for="category">Category
         <select formControlName="category">
-            <option *ngFor="let category of categories" value="category">{{ category }}</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
     </label>
     <br>
@@ -30,7 +30,7 @@
     <br>
     <label for="status">Status
         <select formControlName="status">
-            <option value="st" *ngFor="let st of status">{{ st }}</option>
+            <option [value]="st" *ngFor="let st of status">{{ st }}</option>
         </select>
     </label>
     <br>

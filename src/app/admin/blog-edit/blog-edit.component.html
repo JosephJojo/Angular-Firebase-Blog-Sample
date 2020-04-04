@@ -1,1 +1,38 @@
-<p>blog-edit works!</p>
+<p>Edit Blog Post</p>
+
+<form [formGroup]="blogForm" (ngSubmit)="updatePost(blogForm.value)">
+    <label for="title">Title
+        <input type="text" formControlName="title">
+    </label>
+    <br>
+    <label for="category">Category
+        <select formControlName="category">
+            <option *ngFor="let category of categories" [value]="category" [selected]="category==this.blogPost?.category">{{ category }}</option>
+        </select>
+    </label>
+    <br>
+    <label for="content">Content
+        <textarea formControlName="content" cols="30" rows="10"></textarea>
+    </label>
+    <br>
+    <label for="img">Banner Image
+        <!-- edit this control -->
+        <input type="text" formControlName="img">
+    </label>
+    <br>
+    <!-- <label for="created">Created
+        <input type="date" formControlName="created">
+    </label>
+    <br>
+    <label for="published">Published
+        <input type="date" formControlName="published">
+    </label>
+    <br> -->
+    <label for="status">Status
+        <select formControlName="status">
+            <option [value]="st" *ngFor="let st of status" [selected]="st==this.blogPost?.status">{{ st }}</option>
+        </select>
+    </label>
+    <br>
+    <input type="submit" value="Update Post" [disabled]="!blogForm.valid">
+</form>
