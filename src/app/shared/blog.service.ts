@@ -40,4 +40,12 @@ export class BlogService {
     this.postDoc = this.afs.doc<Blog>(`blogPosts/${id}`);
     this.postDoc.update(post);
   }
+
+  deletePost(id: string) {
+    if(confirm("Are you sure to delete this post?")) {
+      this.postDoc = this.afs.doc<Blog>(`blogPosts/${id}`);
+      this.postDoc.delete();
+    }
+  }
+
 }

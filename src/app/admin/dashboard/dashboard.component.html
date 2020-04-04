@@ -23,6 +23,6 @@
         <td>{{ post.viewsCount }}</td>
         <td>{{ post.commentsCount }}</td>
         <td><a routerLink="/admin/blog/edit/{{ post.id }}">Edit</a></td>
-        <td><a>Delete</a></td>
+        <td><a (click)="deletePost(post.id)">Delete</a></td>
     </tr>
 </table>

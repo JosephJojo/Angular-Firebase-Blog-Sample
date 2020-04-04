@@ -18,4 +18,8 @@ export class DashboardComponent implements OnInit {
     this.posts = this.blogService.getPosts();
   }
 
+  deletePost(id: string) {
+    this.blogService.deletePost(id);
+  }
+
 }
