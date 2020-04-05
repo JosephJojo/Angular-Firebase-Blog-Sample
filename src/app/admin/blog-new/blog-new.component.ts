@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../shared/blog.service';
 
+import Quill from 'quill';
+import ImageResize from 'quill-image-resize-module';
+Quill.register('modules/imageResize', ImageResize);
+
 @Component({
   selector: 'app-blog-new',
   templateUrl: './blog-new.component.html',
@@ -18,8 +22,6 @@ export class BlogNewComponent implements OnInit {
       'title': [null, Validators.required],
       'category': [null, Validators.required],
       'content': [null, Validators.required],
-      // 'created': [null, Validators.required],
-      // 'published': [null, Validators.required],
       'status': [null, Validators.required],
       'img': [null, null]
     })

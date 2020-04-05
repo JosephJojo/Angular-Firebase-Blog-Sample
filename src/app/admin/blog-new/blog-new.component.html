@@ -12,24 +12,13 @@
     </label>
     <br>
     <label for="content">Content
-        <!-- <textarea formControlName="content" cols="30" rows="10"></textarea> -->
-        <!-- <quill-editor format="html" formControlName="content"></quill-editor> -->
-        <quill-editor formControlName="content" [styles]="{'min-height': '200px'}"></quill-editor>
+        <quill-editor formControlName="content" [styles]="{'min-height': '200px'}" [modules]="{imageResize: {}}"></quill-editor>
     </label>
     <br>
     <label for="img">Banner Image
-        <!-- edit this control -->
         <input type="text" formControlName="img">
     </label>
     <br>
-    <!-- <label for="created">Created
-        <input type="date" formControlName="created">
-    </label>
-    <br> -->
-    <!-- <label for="published">Published
-        <input type="date" formControlName="published">
-    </label>
-    <br> -->
     <label for="status">Status
         <select formControlName="status">
             <option [value]="st" *ngFor="let st of status">{{ st }}</option>

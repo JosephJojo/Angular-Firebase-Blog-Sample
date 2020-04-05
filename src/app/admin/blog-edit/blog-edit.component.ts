@@ -4,6 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BlogService } from '../../shared/blog.service';
 import { Blog } from '../../shared/blog.model';
 
+import Quill from 'quill';
+import ImageResize from 'quill-image-resize-module';
+Quill.register('modules/imageResize', ImageResize);
+
 @Component({
   selector: 'app-blog-edit',
   templateUrl: './blog-edit.component.html',
