@@ -12,7 +12,8 @@
     </label>
     <br>
     <label for="content">Content
-        <textarea formControlName="content" cols="30" rows="10"></textarea>
+        <!-- <textarea formControlName="content" cols="30" rows="10"></textarea> -->
+        <quill-editor formControlName="content" [styles]="{'min-height': '200px'}"></quill-editor>
     </label>
     <br>
     <label for="img">Banner Image

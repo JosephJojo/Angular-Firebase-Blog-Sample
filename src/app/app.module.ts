@@ -17,6 +17,8 @@ import { BlogViewComponent } from './blog/blog-view/blog-view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAgoPipe } from './shared/pipes/date-ago.pipe';
 
+import { QuillModule } from 'ngx-quill';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { DateAgoPipe } from './shared/pipes/date-ago.pipe';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule.enablePersistence()
+    AngularFirestoreModule.enablePersistence(),
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
