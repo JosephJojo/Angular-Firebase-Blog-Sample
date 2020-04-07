@@ -3,7 +3,6 @@
 <div *ngFor="let post of posts | async">
     <h2><a routerLink="/blog/view/{{ post?.id }}">{{ post.title }}</a></h2>
     <p>{{ post?.category }}</p>
-    <p>{{ post?.content }}</p>
     <quill-view-html [content]="post?.content"></quill-view-html>
     <p>{{ post?.created?.toMillis() | dateAgo }}</p>
     <p>{{ post?.modified?.toMillis() | dateAgo }}</p>
