@@ -13,6 +13,8 @@ Quill.register('modules/imageResize', ImageResize);
 })
 export class BlogNewComponent implements OnInit {
 
+  myReader:FileReader;
+
   blogForm: FormGroup;
   categories: string[] = [null, 'Angular', 'SharePoint', 'JavaScript', 'PowerShell', "M365"];
   status: string[] = [null, 'Draft', 'Published'];
@@ -33,10 +35,27 @@ export class BlogNewComponent implements OnInit {
   addPost(post) {
     post.created = new Date();
     post.modified = new Date();
+    if(this.myReader) {
+      post.img = this.myReader.result;
+    }
     if(post.status == "Published") {
       post.published = new Date();
     }
     this.blogService.newPost(post);
+  }
+
+  changeBannerListener($event) : void {
+    this.readThis($event.target);
+  }
+  
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    this.myReader = new FileReader();
+  
+    this.myReader.onloadend = (e) => {
+      // console.log(this.myReader.result);
+    }
+    this.myReader.readAsDataURL(file);
   }
 
 }

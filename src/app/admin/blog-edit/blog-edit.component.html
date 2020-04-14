@@ -16,7 +16,11 @@
     </label>
     <br>
     <label for="img">Banner Image
-        <input type="text" formControlName="img">
+        <div *ngIf="blogPost?.img; else newBanner">
+            <img src="{{ blogPost?.img }}" style="height: 50px;"><br>
+            choose new banner <input type="file" accept="image/*" (change)="changeBannerListener($event)">
+        </div>
+        <ng-template #newBanner><input type="file" accept="image/*" (change)="changeBannerListener($event)"></ng-template>
     </label>
     <br>
     <label for="created">Created

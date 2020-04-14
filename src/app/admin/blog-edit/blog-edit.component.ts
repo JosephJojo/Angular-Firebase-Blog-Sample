@@ -15,6 +15,8 @@ Quill.register('modules/imageResize', ImageResize);
 })
 export class BlogEditComponent implements OnInit {
 
+  myReader:FileReader;
+
   blogPost: Blog;
   blogForm: FormGroup;
   categories: string[] = [null, 'Angular', 'SharePoint', 'JavaScript', 'PowerShell', "M365"];
@@ -53,12 +55,29 @@ export class BlogEditComponent implements OnInit {
   updatePost(post: Blog) {
     const id = this.route.snapshot.paramMap.get('id');
     post.modified = new Date();
+    if(this.myReader) {
+      post.img = this.myReader.result as string;
+    }
     if(post.status == "Published") {
       post.published = new Date();
     } else {
       post.published = null;
     }
     this.blogService.updatePost(id, post);
+  }
+
+  changeBannerListener($event) : void {
+    this.readThis($event.target);
+  }
+  
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    this.myReader = new FileReader();
+  
+    this.myReader.onloadend = (e) => {
+      // console.log(this.myReader.result);
+    }
+    this.myReader.readAsDataURL(file);
   }
 
 }

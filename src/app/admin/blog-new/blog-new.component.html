@@ -16,7 +16,7 @@
     </label>
     <br>
     <label for="img">Banner Image
-        <input type="text" formControlName="img">
+        <input type="file" accept="image/*" (change)="changeBannerListener($event)">
     </label>
     <br>
     <label for="status">Status
