@@ -1,41 +1,45 @@
-<p>Edit Blog Post</p>
+<div class="row">
+    <div class="card">
+        <p>Edit Blog Post</p>
 
-<form [formGroup]="blogForm" (ngSubmit)="updatePost(blogForm.value)">
-    <label for="title">Title
-        <input type="text" formControlName="title">
-    </label>
-    <br>
-    <label for="category">Category
-        <select formControlName="category">
-            <option *ngFor="let category of categories" [value]="category" [selected]="category==this.blogPost?.category">{{ category }}</option>
-        </select>
-    </label>
-    <br>
-    <label for="content">Content
-        <quill-editor formControlName="content" [styles]="{'min-height': '200px'}" [modules]="{imageResize: {}}"></quill-editor>
-    </label>
-    <br>
-    <label for="img">Banner Image
-        <div *ngIf="blogPost?.img; else newBanner">
-            <img src="{{ blogPost?.img }}" style="height: 50px;"><br>
-            choose new banner <input type="file" accept="image/*" (change)="changeBannerListener($event)">
-        </div>
-        <ng-template #newBanner><input type="file" accept="image/*" (change)="changeBannerListener($event)"></ng-template>
-    </label>
-    <br>
-    <label for="created">Created
-        {{ blogPost?.created.toMillis() | dateAgo }}
-    </label>
-    <br>
-    <label for="modified">Modified
-        {{ blogPost?.modified.toMillis() | dateAgo }}
-    </label>
-    <br>
-    <label for="status">Status
-        <select formControlName="status">
-            <option [value]="st" *ngFor="let st of status" [selected]="st==this.blogPost?.status">{{ st }}</option>
-        </select>
-    </label>
-    <br>
-    <input type="submit" value="Update Post" [disabled]="!blogForm.valid">
-</form>
+        <form [formGroup]="blogForm" (ngSubmit)="updatePost(blogForm.value)">
+            <label for="title">Title
+                <input type="text" formControlName="title">
+            </label>
+            <br>
+            <label for="category">Category
+                <select formControlName="category">
+                    <option *ngFor="let category of categories" [value]="category" [selected]="category==this.blogPost?.category">{{ category }}</option>
+                </select>
+            </label>
+            <br>
+            <label for="content">Content
+                <quill-editor formControlName="content" [styles]="{'min-height': '200px'}" [modules]="{imageResize: {}}"></quill-editor>
+            </label>
+            <br>
+            <label for="img">Banner Image
+                <div *ngIf="blogPost?.img; else newBanner">
+                    <img src="{{ blogPost?.img }}" style="height: 50px;"><br>
+                    choose new banner <input type="file" accept="image/*" (change)="changeBannerListener($event)">
+                </div>
+                <ng-template #newBanner><input type="file" accept="image/*" (change)="changeBannerListener($event)"></ng-template>
+            </label>
+            <br>
+            <label for="created">Created
+                {{ blogPost?.created.toMillis() | dateAgo }}
+            </label>
+            <br>
+            <label for="modified">Modified
+                {{ blogPost?.modified.toMillis() | dateAgo }}
+            </label>
+            <br>
+            <label for="status">Status
+                <select formControlName="status">
+                    <option [value]="st" *ngFor="let st of status" [selected]="st==this.blogPost?.status">{{ st }}</option>
+                </select>
+            </label>
+            <br>
+            <input type="submit" value="Update Post" [disabled]="!blogForm.valid">
+        </form>
+    </div>
+</div>

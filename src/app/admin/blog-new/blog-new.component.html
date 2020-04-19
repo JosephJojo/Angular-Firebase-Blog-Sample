@@ -1,29 +1,33 @@
-<p>New Blog Post</p>
+<div class="row">
+    <div class="card">
+        <p>New Blog Post</p>
 
-<form [formGroup]="blogForm" (ngSubmit)="addPost(blogForm.value)">
-    <label for="title">Title
-        <input type="text" formControlName="title">
-    </label>
-    <br>
-    <label for="category">Category
-        <select formControlName="category">
-            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-        </select>
-    </label>
-    <br>
-    <label for="content">Content
-        <quill-editor formControlName="content" [styles]="{'min-height': '200px'}" [modules]="{imageResize: {}}"></quill-editor>
-    </label>
-    <br>
-    <label for="img">Banner Image
-        <input type="file" accept="image/*" (change)="changeBannerListener($event)">
-    </label>
-    <br>
-    <label for="status">Status
-        <select formControlName="status">
-            <option [value]="st" *ngFor="let st of status">{{ st }}</option>
-        </select>
-    </label>
-    <br>
-    <input type="submit" value="Create new Post" [disabled]="!blogForm.valid">
-</form>
+        <form [formGroup]="blogForm" (ngSubmit)="addPost(blogForm.value)">
+            <label for="title">Title
+                <input type="text" formControlName="title">
+            </label>
+            <br>
+            <label for="category">Category
+                <select formControlName="category">
+                    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select>
+            </label>
+            <br>
+            <label for="content">Content
+                <quill-editor formControlName="content" [styles]="{'min-height': '200px'}" [modules]="{imageResize: {}}"></quill-editor>
+            </label>
+            <br>
+            <label for="img">Banner Image
+                <input type="file" accept="image/*" (change)="changeBannerListener($event)">
+            </label>
+            <br>
+            <label for="status">Status
+                <select formControlName="status">
+                    <option [value]="st" *ngFor="let st of status">{{ st }}</option>
+                </select>
+            </label>
+            <br>
+            <input type="submit" value="Create new Post" [disabled]="!blogForm.valid">
+        </form>
+    </div>
+</div>

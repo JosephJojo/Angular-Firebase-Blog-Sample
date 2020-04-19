@@ -1,30 +1,34 @@
-<a routerLink="/admin/blog/new">Create new Post</a>
+<div class="row">
+    <div class="card">
+        <a routerLink="/admin/blog/new">Create new Post</a>
 
-<table>
-    <tr>
-        <td>#</td>
-        <td>Title</td>
-        <td>Category</td>
-        <td>Created</td>
-        <td>Modified</td>
-        <td>Published</td>
-        <td>Status</td>
-        <td>No of Views</td>
-        <td>No of Comments</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr *ngFor="let post of posts | async; let i=index">
-        <td>{{ i+1 }}</td>
-        <td><a routerLink="/blog/view/{{ post?.id }}">{{ post?.title }}</a></td>
-        <td>{{ post?.category }}</td>
-        <td>{{ post?.created?.toMillis() | dateAgo }}</td>
-        <td>{{ post?.modified?.toMillis() | dateAgo }}</td>
-        <td>{{ (post?.status=="Published")?(post?.published?.toMillis() | dateAgo):"Not Publised" }}</td>
-        <td>{{ post?.status }}</td>
-        <td>{{ post?.viewsCount }}</td>
-        <td>{{ post?.commentsCount }}</td>
-        <td><a routerLink="/admin/blog/edit/{{ post.id }}">Edit</a></td>
-        <td><a (click)="deletePost(post.id)">Delete</a></td>
-    </tr>
-</table>
+        <table>
+            <tr>
+                <td>#</td>
+                <td>Title</td>
+                <td>Category</td>
+                <td>Created</td>
+                <td>Modified</td>
+                <td>Published</td>
+                <td>Status</td>
+                <td>No of Views</td>
+                <td>No of Comments</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let post of posts | async; let i=index">
+                <td>{{ i+1 }}</td>
+                <td><a routerLink="/blog/view/{{ post?.id }}">{{ post?.title }}</a></td>
+                <td>{{ post?.category }}</td>
+                <td>{{ post?.created?.toMillis() | dateAgo }}</td>
+                <td>{{ post?.modified?.toMillis() | dateAgo }}</td>
+                <td>{{ (post?.status=="Published")?(post?.published?.toMillis() | dateAgo):"Not Publised" }}</td>
+                <td>{{ post?.status }}</td>
+                <td>{{ post?.viewsCount }}</td>
+                <td>{{ post?.commentsCount }}</td>
+                <td><a routerLink="/admin/blog/edit/{{ post.id }}">Edit</a></td>
+                <td><a (click)="deletePost(post.id)">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

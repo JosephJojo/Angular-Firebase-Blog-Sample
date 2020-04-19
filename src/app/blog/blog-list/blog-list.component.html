@@ -1,6 +1,39 @@
-<p>List of blog posts</p>
+<div class="row">
+    <div class="leftcolumn">
+      <div class="card" *ngFor="let post of posts | async">
+        <h2><a routerLink="/blog/view/{{ post?.id }}">{{ post.title }}</a></h2>
+        <h5>Category: {{ post?.category }}, Created {{ post?.created?.toMillis() | dateAgo }}</h5>
+        <quill-view-html [content]="post?.content.substring(0,400)"></quill-view-html>
+      </div>
+      <!-- DOM - Design Sample -->
+      <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="fakeimg" style="height:100px;">Image</div>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam unde possimus eos, odit iste ut sit rerum delectus illum praesentium debitis, sunt laborum velit commodi culpa soluta aliquid laboriosam libero.Atque ratione, delectus aperiam eaque autem, ab ullam vitae, deleniti nemo expedita eos.</p>
+      </div>
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg"><p>Post 1</p></div>
+        <div class="fakeimg"><p>Post 2</p></div>
+        <div class="fakeimg"><p>Posr 3</p></div>
+      </div>
+      <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
 
-<div *ngFor="let post of posts | async">
+<!-- <div *ngFor="let post of posts | async">
     <h2><a routerLink="/blog/view/{{ post?.id }}">{{ post.title }}</a></h2>
     <p>{{ post?.category }}</p>
     <quill-view-html [content]="post?.content"></quill-view-html>
@@ -8,4 +41,4 @@
     <p>{{ post?.modified?.toMillis() | dateAgo }}</p>
     <p>{{ (post?.status=="Published")?(post?.published?.toMillis() | dateAgo):"Not Publised" }}</p>
     <p>{{ post?.status }}</p>
-</div>
+</div> -->
