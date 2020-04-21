@@ -3,12 +3,29 @@
   <p>A Sample blog site.</p>
 </div>
 
-<div class="topnav">
-  <a routerLink="/">Home</a>
+<div class="navbar">
+  <a routerLink="#">Home</a>
   <a href="#">Contact</a>
   <a href="#">About Me</a>
-  <a href="#" style="float:right">Login</a>
+  <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
 </div>
+
+<ng-template #guest>
+  <div class="dropdown">
+    <button class="dropbtn" (click)="auth.googleSignin()">Login</button>
+  </div>
+</ng-template>
+<ng-template #authenticated>
+  <div class="dropdown">
+    <button class="dropbtn" *ngIf="auth.user$ | async as user">
+      Hello {{ user.displayName }} <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Admin Dashboard</a>
+      <a (click)="auth.signOut()">Logout</a>
+    </div>
+  </div> 
+</ng-template>
 
 <router-outlet></router-outlet>
 <div class="footer">
